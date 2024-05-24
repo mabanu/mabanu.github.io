@@ -41,6 +41,8 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -48,6 +50,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./mabanu/dist
