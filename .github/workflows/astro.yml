@@ -54,3 +54,5 @@ jobs:
         with:
           github_token: ${{ secrets.SHH_KEY }}
           publish_dir: ./mabanu/dist
+          user_name: mabanu
+          user_email: elbodysathba@gmail.com
