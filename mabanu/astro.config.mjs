@@ -1,7 +1,11 @@
 import { defineConfig } from 'astro/config';
 
+import tailwind from "@astrojs/tailwind";
+
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://mabanu.github.io',
-    //base: 'mabanu.github.io',
+  site: 'https://mabanu.github.io'
+  //base: 'mabanu.github.io',
+  ,
+  integrations: [tailwind()]
 });
